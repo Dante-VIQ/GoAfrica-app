@@ -1,0 +1,1 @@
+<livewire:blog-card />
