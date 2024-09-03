@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 Route::get('/service', ServicePage::class);
 
-Route::get('/doctor', DoctorPage::class);
+Route::get('/destination', DoctorPage::class);
 
 Route::get('/about', AboutPage::class);
 
@@ -44,7 +44,11 @@ Route::get('/test-me', CreateServiceBox::class);
 //     return view('blog-lay');
 // })->name('blog-lay');
 
-Route::get('/blogs/{blog}', BlogPage::class, 'show');
+// Route::get('/blogs/{blog}', BlogPage::class, 'show');
+Route::get('/blogs/{blog}', BlogPage::class);
+Route::post('/main', BlogCard::class);
+Route::get('/blogs/{blog}', [BlogCard::class, 'show']);
+
 
 // App\Models\Blog::create([10]);
 

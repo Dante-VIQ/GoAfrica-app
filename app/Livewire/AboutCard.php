@@ -25,6 +25,9 @@ class AboutCard extends Component
 
     public $editingNewDetail;
 
+    public $editingNewMerit;
+
+
     public $image, $imageName, $imageUrl, $photo, $photoName, $photoUrl;
 
     public $editingNewImage, $editingNewPhoto;
@@ -35,8 +38,8 @@ class AboutCard extends Component
         'detail' => 'required|string|max:255',
         'title' => 'required|string|max:255',
         'merit' => 'required|string|max:255',
-        'image' => 'required|image|mimes:jpeg,png,gif,svg|max:2048',
-        'photo' => 'required|image|mimes:jpeg,png,gif,svg|max:2048',
+        'image' => 'required|image|mimes:jpeg,png,gif,svg|max:10480',
+        'photo' => 'required|image|mimes:jpeg,png,gif,svg|max:10480',
     ];
     public function render()
     {
@@ -98,28 +101,28 @@ class AboutCard extends Component
         $about = About::findorFail($aboutID);
         $this->editingNewTitle = $about->title;
         $this->editingNewDetail = $about->detail;
-        // $this->editingNewMerit = $about->merit;
+        $this->editingNewMerit = $about->merit;
         $this->editingNewImage = $about->image;
         $this->editingNewPhoto = $about->photo;
-        $this->about_id = $aboutID;
+        $this->editingAbout1D = $aboutID;
     }
 
-    public function update()
+    public function update(About $about)
     {
         $validated = $this->validate([
-            'title' => 'required',
-            'detail' => 'required',
-            'merit' => 'required',
-            'image' => 'image|max:10240',
-            'photo' => 'image|max:10240',
+            'editingNewTitle' => 'required',
+            'editingNewDetail' => 'required',
+            'editingNewMerit' => 'required',
+            'editingNewImage' => 'image|max:10240',
+            'editingNewPhoto' => 'image|max:10240',
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('images', 'public');
+            $validated['editingNewImage'] = $this->image->store('images', 'public');
         }
 
         if ($this->photo) {
-            $validated['photo'] = $this->photo->store('photos', 'public');
+            $validated['editingNewPhoto'] = $this->photo->store('photos', 'public');
         }
         //    $imagePath = $this->imageUrl;
 

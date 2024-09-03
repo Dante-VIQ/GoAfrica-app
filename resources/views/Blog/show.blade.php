@@ -1,8 +1,12 @@
-<x-layout>
+@props(['blog'])
+
+
+<x-app-layout>
   <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
   </a>
   <div class="mx-4">
-    <x-card class="p-10">
+
+    <x-card wire:key="{{ $blog->id }}" class="p-10 bg-gray-100">
       <div class="flex flex-col items-center justify-center text-center text-white">
         <img class="w-64 mr-6 mb-6"
           src="{{$blog->image ? asset('storage/' . $blog->image) : asset('/images/no-image.png')}}" alt="" />
@@ -21,12 +25,12 @@
         <div>
           <h3 class="text-3xl font-bold mb-4">Description</h3>
           <div class="text-lg space-y-10">
-            {{$blog->description}}
+            {{ $blog->description }}
 
 
           </div>
         </div>
-        <livewire:comments :model="blog" />
+        {{-- <livewire:comments :model="blog" /> --}}
       </div>
     </x-card>
 
@@ -35,11 +39,11 @@
         <i class="fa-solid fa-pencil"></i> Edit
       </a>
 
-      <form method="POST" action="/blogs/{{$blog->id}}">
+      {{-- <form method="POST" action="/blogs/{{$blog->id}}">
         @csrf
         @method('DELETE')
         <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
-      </form>
+      </form> --}}
     </x-card>
   </div>
-</x-layout>
+</x-app-layout>

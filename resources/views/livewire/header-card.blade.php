@@ -2,7 +2,7 @@
     <div class="row g-0 align-items-center bg-primary flex-column-reverse flex-lg-row">
 
         <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-            <h2 class="display-4 text-white mb-5">Explore The World, Let Us Be your Guide</h2>
+            <h2 class="display-5 text-white mb-5">Discover The Magestic Africa, Let Us Be your Guide</h2>
             <div class="flex space-x-4 justify-center">
                 {{-- <livewire:destination-card /> --}}
             </div>

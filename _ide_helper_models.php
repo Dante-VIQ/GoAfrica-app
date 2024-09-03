@@ -74,6 +74,20 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|AnalysisDashboard newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AnalysisDashboard newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AnalysisDashboard query()
+ */
+	class AnalysisDashboard extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property int $user_id
  * @property string $image
  * @property string $title
@@ -139,6 +153,25 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ChMessage query()
  */
 	class ChMessage extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $name
+ * @property string $country
+ * @property string $image
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|City newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|City newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|City query()
+ */
+	class City extends \Eloquent {}
 }
 
 namespace App\Models{

@@ -1,36 +1,40 @@
 <div>
 
-    <div class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
+    @unless (count($blogs) == 0)
 
-            <article
-                class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-                <header class="mb-4 lg:mb-6 not-format">
-                    <address class="flex items-center mb-6 not-italic">
-                        <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                            <img class="mr-4 w-16 h-16 rounded-full" src="{{ $blog->user->profile_photo_url }}"
-                                alt="{{ $blog->user->name }}">
-                            <div>
-                                <a href="#" rel="author"
-                                    class="text-xl font-bold text-gray-900 dark:text-white">{{ $blog->user->name }}</a>
-                                <p class="text-base text-gray-500 dark:text-gray-400">{{ $blog->user->category }}</p>
-                                <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate
-                                        datetime="2024-02-08" title="February 8th, 2024">{{ $blog->created_at }}</time>
-                                </p>
-                            </div>
-                        </div>
-                    </address>
-                    <h1
-                        class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                        {{ $blog->title }}</h1>
-                </header>
+        <div class="grid gap-4 lg:grid-cols-3 py-20 pl-10 pr-10">
+            @foreach ($blogs as $blog)
+                <!-- Posts Section -->
+        <section>
 
-                <p class="lead">{{ $blog->description }}</p>
-                <livewire:comments :model="$blog" />
+            <article class="flex flex-col shadow my-4">
+                <!-- Article Image -->
+                <a href="#" class="hover:opacity-75">
+                    <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
+                </a>
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
+                    <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</a>
+                    <p href="#" class="text-sm pb-3">
+                        By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on April 25th, 2020
+                    </p>
+                    <a href="#" class="pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna..</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                </div>
             </article>
 
+            <!-- Pagination -->
+            {{-- <div class="flex items-center py-8">
+                <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
+            </div> --}}
+
+        </section>
+            @endforeach
         </div>
-    </div>
+    @else
+    @endunless
 
 
     <aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
@@ -38,24 +42,24 @@
             <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
             <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
                 {{-- @unless (count($blogs) == 0) --}}
-                    @foreach ($blogs as $blog)
-                        <article class="max-w-xs">
-                            <a href="#">
-                                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png"
-                                    class="mb-5 rounded-lg" alt="Image 1">
-                            </a>
-                            <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                                <a href="#">{{ $blog->title }}</a>
-                            </h2>
+                {{-- @foreach ($blogs as $blog)
+                    <article class="max-w-xs">
+                        <a href="#">
+                            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png"
+                                class="mb-5 rounded-lg" alt="Image 1">
+                        </a>
+                        <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                            <a href="#">{{ $blog->title }}</a>
+                        </h2>
 
-                            <p class="mb-4 text-gray-500 dark:text-gray-400">{{ $blog->description }}</p>
+                        <p class="mb-4 text-gray-500 dark:text-gray-400">{{ $blog->description }}</p>
 
-                            <a href="#"
-                                class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                                Read in 2 minutes
-                            </a>
-                        </article>
-                    @endforeach
+                        <a href="#"
+                            class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
+                            Read in 2 minutes
+                        </a>
+                    </article>
+                @endforeach --}}
                 {{-- @else
                     <p>no blogs</p>
                 @endunless --}}

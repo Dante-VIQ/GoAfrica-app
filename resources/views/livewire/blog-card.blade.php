@@ -1,9 +1,9 @@
 <div>
     @unless (count($blogs) == 0)
 
-        <div class="grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 lg:grid-cols-3 pt-20">
             @foreach ($blogs as $blog)
-                <article wire:key="{{ $blog->id }}"
+                {{-- <article wire:key="{{ $blog->id }}"
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
                         <span
@@ -41,21 +41,66 @@
                         </a>
                     </div>
 
+                </article> --}}
+
+                <div class="absolute top-2 right-2">
+                    <div x-data="{ show: false }">
+                        <x-button x-on:click.prevent="show = true">show<i class="fa fa-ellipsis text-3xl"></i></x-button>
+                        <div class="h-auto w-24 bg-gray-dark">
+                            <div x-show="show" x-on:click.outside.prevent="show = false">
+                                <ol class="right-4 bg-slate-800 text-slate-300 justify-center p-2">
+                                    @can('update', $blog)
+                                        <li><a wire:click.live="edit({{ $blog->id }})" href="#">Edit</a></li>
+                                    @endcan
+                                    <li><a wire:click.live="delete({{ $blog->id }})" href="#">Delete</a></li>
+                                    <li><a href="#">Share</a></li>
+                                    <li><a href="#">Report</a></li>
+                                    {{-- <li><a href="#">Save Post</a></li> --}}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <article wire:key="{{ $blog->id }}" class="flex flex-col shadow my-4">
+                    <!-- Article Image -->
+                    <a href="#" class="hover:opacity-75">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
+                    </a>
+                    <div class="bg-white flex flex-col justify-start p-6">
+                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
+                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $blog->title }}</a>
+                        <p href="#" class="text-sm pb-3">
+                            By <a href="#" class="font-semibold hover:text-gray-800">{{ $blog->user->name }}</a>,
+                            {{ $blog->created_at }}
+                        </p>
+                        <a href="#" class="pb-6 h-44 overflow-hidden text-wrap">{{ $blog->description }}</a>
+                        <a href="/blogs/{{ $blog->id }}" class="uppercase text-gray-800 hover:text-black">Continue
+                            Reading <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </article>
             @endforeach
         </div>
     @else
     @endunless
 
-    @if (auth()->check() && auth()->user()->isAdmin())
-        <div class="relative p-5 mx-auto" x-data="{ show: false }">
-            <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
-                    class="fa fa-add text-primary"></i>
-                Add Blog</x-button>
+    {{-- @if (auth()->check() && auth()->user()->isMaster()) --}}
+    <div class="flex">
+        @can('create', $blog)
+            <div class="relative p-5 mx-auto" x-data="{ show: false }">
+                <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
+                        class="fa fa-add text-primary"></i>
+                    Add Blog</x-button>
 
-            <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
-                @include('livewire.includes.blog-create')
+                <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
+                    @include('livewire.includes.blog-create')
+                </div>
             </div>
-        </div>
-    @endif
+        @endcan
+
+        
+        {{-- @endif --}}
+
+
+    </div>
 </div>

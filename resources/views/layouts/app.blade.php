@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="keywords" content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
+    <meta name="description" content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and umique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe." >
+    <title>{{ config('app.name', 'AfrikaVibe') }}</title>
 
-    <title>{{ config('app.name', 'GoAfrica') }}</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    @livewireStyles
 
     {{-- <!-- Fonts --> --}}
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -115,10 +114,12 @@
         }
     </script>
 
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    @livewireStyles
 </head>
 
-<body class="font-serif">
+<body class="font-body">
     <x-banner />
 
     <div class="max-h-screen bg-gray-100 dark:bg-gray-900">
@@ -141,7 +142,6 @@
     </div>
 
 
-    @livewireScripts
 
 
 
@@ -165,8 +165,9 @@
     {{-- <script src="/public/bootstrap5/js/bootstrap.min.js"></script> --}}
     {{-- <!-- Template Javascript --> --}}
 
+    @livewireScripts
 
-    {{-- @stack('modals') --}}
+    @stack('modals')
 
 </body>
 

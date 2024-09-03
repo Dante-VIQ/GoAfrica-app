@@ -3,6 +3,9 @@
         @unless (count($services) == 0)
 
             @foreach ($services as $service)
+
+          
+
                 @include('livewire.includes.service-box')
             @endforeach
 
@@ -13,7 +16,7 @@
         @endunless
     </div>
 
-@if(auth()->check() && auth()->user()->isAdmin())
+@if(auth()->check() && auth()->user()->isMaster())
 
     <div class="absolute p-5 mx-auto" x-data="{ show: false }">
         <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i

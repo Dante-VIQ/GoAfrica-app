@@ -1,14 +1,21 @@
 <div>
 
-    <div class="row g-0 mx-lg-0 bg-primary">
+    <div class="container">
+        <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+            <p class="d-inline-block border rounded-pill py-1 px-4 text-lg">Events</p>
+        </div>
+        <div class="grid lg:grid-cols-4 gap-4">
+
+
         @unless (count($features) == 0)
 
             @foreach ($features as $feature)
-                @include('livewire.includes.feature-body')
+                @include('livewire.includes.events')
             @endforeach
         @else
-            <p class="text-black-text-lg text-center italic">Features Are Not Available At The Moment.</p>
+            <p class="text-black text-lg text-center italic">Features Are Not Available At The Moment.</p>
         @endunless
+        </div>
     </div>
 
 

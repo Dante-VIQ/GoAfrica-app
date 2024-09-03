@@ -5,13 +5,14 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Blog;
+use App\Models\City;
 use App\Models\User;
 use App\Models\About;
-use App\Models\Destination;
 use App\Models\Doctor;
 use App\Models\Header;
 use App\Models\Feature;
 use App\Models\Service;
+use App\Models\Destination;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
@@ -60,6 +61,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Destination::factory(4)->create([
+            'user_id' => $user->id,
+        ]);
+
+        City::factory(4)->create([
             'user_id' => $user->id,
         ]);
     }

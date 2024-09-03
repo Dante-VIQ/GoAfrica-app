@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'encrypt' => true,
+    'encrypt' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'GoAfrica'), '_').'_session'
+        Str::slug(env('APP_NAME', 'AfrikaVibe'), '_').'_session'
     ),
 
     /*

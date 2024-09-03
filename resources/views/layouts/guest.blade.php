@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'DAWAIT') }}</title>
+    <title>{{ config('app.name', 'AfrikaVibe') }}</title>
 
     {{-- <!-- Fonts --> --}}
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,8 +18,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
         rel="stylesheet"> --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+
     {{-- <!-- Icon Font Stylesheet --> --}}
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"> --}}
@@ -94,6 +93,8 @@
             }
         }
     </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
 <body class="font-sans">
@@ -160,13 +161,12 @@
         </main>
     </div>
 
-    @livewireScripts
     {{-- @push('scripts') --}}
-        
-   
+
+
     <script src="{{ asset('/public/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>
 
-{{-- 
+{{--
     <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="{{ asset('/lib/wow/wow.min.js') }}"></script>
@@ -188,8 +188,9 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     {{-- @endpush --}}
-    
 
+
+    @livewireScripts
     @stack('modals')
 
 </body>

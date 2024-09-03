@@ -18,10 +18,10 @@ class FeatureCard extends Component
 
     #[Rule('required|min:3|max:255')]
     public $title;
-    #[Rule('required|min:3|max:30')]
-    public $edittingFeatureID;
-    #[Rule('required|min:3|max:30')]
-    public $edittingNewName;
+    // #[Rule('required|min:3|max:30')]
+    // public $edittingFeatureID;
+    // #[Rule('required|min:3|max:30')]
+    // public $edittingNewName;
 
     #[Validate('image|max:10240')]
     public $image,
@@ -32,7 +32,7 @@ class FeatureCard extends Component
 
     public function render()
     {
-        $this->features = Feature::latest()->take(1)->get();
+        $this->features = Feature::latest()->get();
         return view('livewire.feature-card');
     }
 
@@ -51,7 +51,7 @@ class FeatureCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('images');
+            $validated['image'] = $this->image->store('events', 'public');
         }
 
         $imagePath = $this->imageUrl;
@@ -66,7 +66,7 @@ class FeatureCard extends Component
     public function editingFeatureID($id)
     {
         $feature = Feature::findorFail($id);
-        $this->titles = $feature->titles;
+        $this->title = $feature->title;
         $this->description = $feature->description;
         // $this->tags = $feature->tags;
         $this->image = $feature->image;
@@ -99,7 +99,7 @@ class FeatureCard extends Component
 
     private function resetFields()
     {
-        $this->titles = '';
+        $this->title = '';
         $this->description = '';
         $this->image = '';
         $this->feature_id = null;

@@ -10,7 +10,6 @@
                     </a> --}}
                     <x-application-name />
 
-
                 </div>
 
                 <!-- Navigation Links -->
@@ -21,11 +20,10 @@
                     {{-- navigation items --}}
                     <x-nav-item />
 
+                    {{-- <x-our-blog /> --}}
                     {{-- <livewire:chatify /> --}}
 
-                    <span class="mx-auto text-center py-4 px-5"><a href="/chatify">
-                        <i class="fa fa-message text-lg text-slate-950">chat</i>
-                    </a></span>
+
                 </div>
 
             </div>
@@ -92,16 +90,16 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                            <div class="flex gap-5 ">
+                                <div class="flex gap-5 ">
 
-                                <button
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-10 w-10 rounded-full object-cover"
-                                        src="{{ Auth::user()->profile_photo_url  }}" alt="{{ Auth::user()->name }}" />
-                                </button>
-                            </div>
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                        <img class="h-10 w-10 rounded-full object-cover"
+                                            src="{{ Auth::user()->profile_photo_url }}"
+                                            alt="{{ Auth::user()->name }}" />
+                                    </button>
+                                </div>
                             @else
-
                                 <span class="inline-flex rounded-md">
                                     <button type="button"
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
@@ -161,6 +159,10 @@
                     </svg>
                 </button>
             </div>
+
+            {{-- <div class="absolute lg:top-0 lg:pl-5 lg:left-1/4 flex sm:left-0 sm:top-12 items-center bg-white sm:max-w-screen-2xl pl-16 h-16">
+                <x-nav-item />
+            </div> --}}
         </div>
     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Blog;
+use App\Models\City;
 use App\Models\About;
 use App\Models\Doctor;
 use App\Models\Header;
@@ -19,7 +20,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -29,7 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use TwoFactorAuthenticatable;
 
     const ROLE_ADMIN = 'admin';
-    const ROLE_USER = 'user';
+    // const ROLE_USER = 'user';
+    const ROLE_MASTER = 'master';
     /**
      * The attributes that are mass assignable.
      *
@@ -108,9 +110,22 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Destination::class, 'user_id');
     }
 
+    public function cities()
+    {
+        return $this->hasMany(City::class, 'user_id');
+    }
     public function isAdmin()
     {
         if ($this->role != self::ROLE_ADMIN) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function isMaster()
+    {
+        if ($this->role != self::ROLE_MASTER) {
             return false;
         }
 

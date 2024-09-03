@@ -253,8 +253,8 @@
 /*** Service ***/
 .service-item {
     transition: .5s;
-    
-    
+
+
 }
 
 .service-item:hover {
@@ -544,9 +544,9 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.5rem;
-    
+
     }
-    
+
     .blog_box{
     width: 340px;
     height: auto;
@@ -554,7 +554,7 @@
     border-radius: 4px;
     box-shadow: 0px 0px 20px var(--purple);
     transition: .3s ease-out;
-    
+
     }
     .blog_box:hover{
     box-shadow: 3px 4px 15px var(--blue);
@@ -564,11 +564,11 @@
     height: 30vh;
     object-fit: cover;
     object-position: center;
-    
+
     }
     .blog_data{
     padding: 15px 20px;
-    
+
     }
     .date{
     font-size: .80rem;
@@ -584,7 +584,7 @@
     color: var(--color-light);
     letter-spacing: .1rem;
     margin-bottom: .4rem;
-    
+
     }
     .blog_desc{
     margin-bottom: 1.4rem;
@@ -612,6 +612,6 @@
     }
     .read-btn:hover i{
     transform: translateX(5px);
-    
+
     }
-    
+

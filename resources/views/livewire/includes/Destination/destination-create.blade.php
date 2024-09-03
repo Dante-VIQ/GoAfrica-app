@@ -5,7 +5,7 @@
         {{-- <p class="mb-4 font-semibold">Post a gig</p> --}}
     </header>
 
-    <div>
+    <div class="overflow overflow-scroll">
         <form wire:submit.prevent="create">
             @csrf
             <div class="mb-6 text-black font-semibold">

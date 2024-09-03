@@ -3,12 +3,12 @@
             <div class="row g-5 place-items-center mx-auto text-center">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Free Area - Nakuru City</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+254 762 407 853</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>damalide20@gmail.com</p>
                     <div class="d-flex pt-2 justify-center ">
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
-                                class="fab fa-twitter"></i></a>
+                                class="fab fa-tiktok"></i></a>
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
                                 class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p>Stay Updated by subscribing to our daily read.</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
                             placeholder="Your email">
@@ -49,10 +49,10 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">DAWAIT</a>, All Right Reserved.
+                        &copy; <a class="border-bottom" href="#">AfrikaVibe</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        Designed By <a class="border-bottom" href="#">Dante Mwangi</a>
+                        Designed By <a class="border-bottom" href="#">Daniel M. Maina</a>
                     </div>
                 </div>
             </div>
