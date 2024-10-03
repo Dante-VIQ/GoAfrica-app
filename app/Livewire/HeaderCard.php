@@ -8,6 +8,7 @@ use App\Models\Destination;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Gate;
 
 class HeaderCard extends Component
 {
@@ -35,8 +36,9 @@ class HeaderCard extends Component
     //     return view('placeholder');
     // }
 
-    public function create()
+    public function create(Header $header)
     {
+        Gate::authorize('create', $header);
         $validated = $this->validate([
             'name' => 'required',
             'image' => 'image|max:4096',
@@ -44,7 +46,7 @@ class HeaderCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('images');
+            $validated['image'] = $this->image->store('destination', 'public');
         }
 
         $imagePath = $this->imageUrl;
@@ -64,8 +66,9 @@ class HeaderCard extends Component
         $this->header_id = $id;
     }
 
-    public function updateHeader()
+    public function updateHeader(Header $header)
     {
+        Gate::authorize('update', $header);
         $validated = $this->validate([
             'name' => 'alpha|required|',
             'image' => 'image|max:4096',
@@ -82,14 +85,16 @@ class HeaderCard extends Component
         $this->resetFields();
     }
 
-    public function deleteHeader($id)
+    public function deleteHeader(Header $header)
     {
+        Gate::authorize('delete', $header);
         Header::find($id)->delete();
     }
 
     private function resetFields()
     {
         $this->name = '';
+        $this->category = '';
         $this->image = '';
         $this->header_id = null;
     }

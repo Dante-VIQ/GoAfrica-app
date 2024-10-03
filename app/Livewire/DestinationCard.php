@@ -8,6 +8,7 @@ use App\Models\Destination;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Gate;
 
 class DestinationCard extends Component
 {
@@ -48,8 +49,9 @@ class DestinationCard extends Component
         return view('livewire.destination-card');
     }
 
-    public function create()
+    public function create(Destination $destination)
     {
+        Gate::authorize('create', $destination);
         $validated = $this->validate([
             'name' => 'required',
             'detail' => 'required',
@@ -61,7 +63,7 @@ class DestinationCard extends Component
         //     $validated['image'] = $this->image->store('images');
         // }
 
-        
+
         foreach($this->images as $image) {
          $validated['images'] = $image->store('images', 'public');
         }

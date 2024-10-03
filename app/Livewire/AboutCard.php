@@ -56,8 +56,9 @@ class AboutCard extends Component
         return view('livewire.includes.about-show')->with('about', About::findOrFail($aboutID));
     }
 
-    public function create()
+    public function create(About $about)
     {
+        Gate::authorize('create', $about);
         $validated = $this->validate([
             'detail' => 'required',
             'title' => 'required',
@@ -95,8 +96,10 @@ class AboutCard extends Component
         // dd(asset('storage/' . $this->photo));
     }
 
-    public function edit($aboutID)
+    public function edit(About $about)
     {
+        Gate::authorize('edit', $about);
+
         $this->editingAboutID = $aboutID;
         $about = About::findorFail($aboutID);
         $this->editingNewTitle = $about->title;
@@ -109,6 +112,8 @@ class AboutCard extends Component
 
     public function update(About $about)
     {
+        Gate::authorize('update', $about);
+
         $validated = $this->validate([
             'editingNewTitle' => 'required',
             'editingNewDetail' => 'required',
@@ -138,8 +143,10 @@ class AboutCard extends Component
         $this->resetFields();
     }
 
-    public function deleteAbout($aboutID)
+    public function deleteAbout(About $about)
     {
+        Gate::authorize('delete', $about);
+
         About::find($aboutID)->delete();
     }
 

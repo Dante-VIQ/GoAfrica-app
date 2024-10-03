@@ -28,24 +28,20 @@
 
     {{-- <!-- Libraries Stylesheet --> --}}
     <link href="{{ asset('/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('/vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="/public/vendor/adminlte/dist/css/adminlte.min.css"> --}}
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('/css/bootstrap.min.css ') }}" rel="stylesheet">
-    <link href="{{ asset('/public/bootstrap5/css/bootstrap.min.css ') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('/public/bootstrap5/css/bootstrap.min.css ') }}" rel="stylesheet"> --}}
 
     {{-- <!-- Template Stylesheet --> --}}
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     {{-- <!-- Scripts --> --}}
 
     <link href="{{ asset('/css/tailwind.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" href="/jquery.mobile-1.4.5/jquery.mobile.icons-1.4.5.min.css">
 
 
 
@@ -119,7 +115,7 @@
     @livewireStyles
 </head>
 
-<body class="font-body">
+<body class="font-sans">
     <x-banner />
 
     <div class="max-h-screen bg-gray-100 dark:bg-gray-900">
@@ -146,7 +142,7 @@
 
 
     {{-- @push('scripts') --}}
-        <script src="{{ asset('/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>
+        {{-- <script src="{{ asset('/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script> --}}
 
 
         {{-- <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
@@ -155,7 +151,7 @@
         <script src="{{ asset('/lib/easing/easing.min.js') }}"></script>
         <script src="{{ asset('/lib/waypoints/waypoints.min.js') }}"></script>
         <script src="{{ asset('/lib/counterup/counterup.min.js') }}"></script>
-        <script src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+        {{-- <script src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}"></script> --}}
         <script src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}"></script>
         <script src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
         <script src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>

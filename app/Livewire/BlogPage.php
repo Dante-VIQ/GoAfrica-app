@@ -17,10 +17,12 @@ class BlogPage extends Component
 
     public Blog $blog;
 
-    #[Computed()]
+    #[Computed]
     public function blogs()
     {
-        return Blog::latest()->filter(request(['category', 'search']))->get();
+        return Blog::latest()
+            ->filter(request(['category', 'search']))
+            ->get();
     }
 
     // public function mount($blogID)

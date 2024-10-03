@@ -45,8 +45,9 @@ public $blogID;
         'NewImage' => 'image|sometimes|nullable|max:10240',
 
     ];
-    public function create()
+    public function create(Blog $blog)
     {
+        Gate::authorize('create', $blog);
         $validated = $this->validate([
             'title' => 'required',
             'description' => 'required',
